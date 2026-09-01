@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container resultado">
+        <h1>Resultado do Aluno</h1>
+
+        <h2 id="nomeAluno"></h2>
+
+        <p id="mediaFinal"></p>
+
+        <h2 id="situacao"></h2>
+
+        <a href="index.html">Voltar</a>
+    </div>
+
+    <script>
+        // Recupera os dados salvos na primeira página
+        const nome = localStorage.getItem("nomeAluno");
+        const media = Number(localStorage.getItem("mediaAluno"));
+
+        document.getElementById("nomeAluno").textContent =
+            "Aluno: " + nome;
+
+        document.getElementById("mediaFinal").textContent =
+            "Média: " + media.toFixed(1);
+
+        let situacao = "";
+
+        if (media > 6) {
+            situacao = "APROVADO";
+        } else if (media >= 2 && media < 6) {
+            situacao = "EXAME";
+        } else {
+            situacao = "REPROVADO";
+        }
+
+        document.getElementById("situacao").textContent = situacao;
+    </script>
+
+</body>
+</html>
