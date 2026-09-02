@@ -20,29 +20,32 @@
         <a href="index.html">Voltar</a>
     </div>
 
-    <script>
-        // Recupera os dados salvos na primeira página
-        const nome = localStorage.getItem("nomeAluno");
-        const media = Number(localStorage.getItem("mediaAluno"));
+<script>
 
-        document.getElementById("nomeAluno").textContent =
-            "Aluno: " + nome;
+    const nome = localStorage.getItem("nomeAluno");
+    const media = Number(localStorage.getItem("mediaAluno"));
 
-        document.getElementById("mediaFinal").textContent =
-            "Média: " + media.toFixed(1);
+    document.getElementById("nomeAluno").textContent =
+        "Aluno: " + nome;
 
-        let situacao = "";
+    document.getElementById("mediaFinal").textContent =
+        "Média: " + media.toFixed(1);
 
-        if (media > 6) {
-            situacao = "APROVADO";
-        } else if (media >= 2 && media < 6) {
-            situacao = "EXAME";
-        } else {
-            situacao = "REPROVADO";
-        }
+    const situacaoElemento = document.getElementById("situacao");
 
-        document.getElementById("situacao").textContent = situacao;
-    </script>
+    if (media > 6) {
+        situacaoElemento.textContent = "APROVADO";
+        situacaoElemento.style.color = "green";
+    } else if (media >= 2 && media < 6) {
+        situacaoElemento.textContent = "EXAME";
+        situacaoElemento.style.color = "orange";
+    } else {
+        situacaoElemento.textContent = "REPROVADO";
+        situacaoElemento.style.color = "red";
+    }
+</script>
+
+
 
 </body>
 </html>
